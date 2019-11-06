@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pastries</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #F2DBAF;
+        }
+
+        h1 {
+            font-family: "Century Gothic", sans-serif;
+            text-align: center;
+        }
+
+        .wrapper {
+            width: 1180px;
+            background-color: #F2DBAF;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .header {
+            position: relative;
+            width: 1180px;
+            height: 125px;
+            background-color: floralwhite;
+            margin-top: 75px;
+            margin-bottom: 50px;
+            border-top: 2px solid #000000;
+            border-bottom: 2px solid #000000;
+        }
+
+        .dropdown {
+            position: absolute;
+            display: inline-block;
+            font-family: "Century Gothic", sans-serif;
+            font-weight: bold;
+            font-size: 30px;
+            margin-top: 30px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #FFFDFD;
+            min-width: 250px;
+            min-height: 150px;
+            letter-spacing: 2px;
+            line-height: 60px;
+            box-shadow: 0 8px 16px 0;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 55px;
+            margin-left: 10px;
+
+        }
+
+        button {
+            position: absolute;
+            width: 180px;
+            height: 60px;
+            padding: 10px;
+            margin: 16px;
+            background: #F2DBAF;
+            border: 1px solid #000000;
+            box-sizing: border-box;
+            border-radius: 5px;
+            font-family: "Century Gothic", sans-serif;
+            font-size: 20px;
+            box-shadow: -3px 3px #d8c39c;
+        }
+
+        #menu-button {
+            width: 150px;
+            background-color: #F2DBAF;
+            box-shadow: -3px 3px #d8c39c;
+            margin-top: -5px;
+            border-width: 2px;
+            font-family: "Century Gothic", sans-serif;
+            font-size: 25px;
+            font-weight: bolder;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        a:link {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:visited {
+            text-decoration: none;
+            color: #ff5246;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: #a91775;
+        }
+
+        a:active {
+            text-decoration: none;
+            color: #f3fffa;
+        }
+
+        a:hover {
+            cursor: pointer;
+        }
+
+        img {
+            width: 450px;
+            margin-left: 370px;
+            margin-top: -15px;
+        }
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 490px;
+            z-index: 99;
+            font-size: 20px;
+            outline: none;
+            background-color: #ff5246;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        #myBtn:hover {
+            background-color: #c6a46f;
+        }
+
+        #croissant-img {
+            width: 100%;
+            margin-left: 3px;
+            opacity: 60%;
+            position: relative;
+        }
+
+        h1 {
+            margin-top: -120px;
+            margin-left: 490px;
+            opacity: 200%;
+            color: black;
+            font-family: "apple-chancercursive", serif;
+            font-weight: bold;
+            font-size: 60px;
+            /*-webkit-text-stroke: 1px floralwhite;*/
+            position: absolute;
+        }
+
+        #caption {
+            font-family: "Century Gothic", sans-serif;
+            font-size: 18px;
+            text-align: center;
+            background-color: #ffefd5;
+            padding: 20px 0 20px 0;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #c6a46f;
+            border-radius: 5px
+        }
+
+        .menu-container {
+            width: 1180px;
+
+        }
+
+        table {
+            border-radius: 5px;
+            line-height: 90px;
+            background-color: #ffefd5;
+            border: 1px solid #c6a46f;
+            width: 390px;
+        }
+
+        th {
+            font-size: 24px;
+            font-family: "Century Gothic", sans-serif;
+        }
+
+        tr {
+            border: 1px black solid;
+            border-radius: 5px;
+            font-size: 20px;
+            font-family: "Century Gothic", sans-serif;
+            text-align: center;
+
+        }
+
+        .menu-container-1 {
+            /*position: relative;*/
+            margin-left: 1px;
+        }
+
+        .menu-container-2 {
+            margin-top: -1098px;
+        }
+
+        .menu-container-3 {
+            /*position: relative;*/
+            margin-left: 396px;
+        }
+
+        .hover {
+            background-color: floralwhite;
+            padding: 0 5px 0 5px;
+            display: none;
+            border-radius: 5px;
+            border: 1px solid #c6a46f;
+            opacity: 95%;
+            margin-top: -30px;
+            font-size: 18px;
+            line-height: 30px;
+            max-width: 300px;
+            color: #ff5246;
+        }
+
+        span:hover + .hover {
+            display: block;
+            position: absolute;
+            margin-left: 45px;
+        }
+
+        #pastries-title {
+            margin-left: 440px;
+        }
+
+        p {
+            line-height: 30px;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+
+    <div class="header">
+
+        <div class="dropdown">
+
+            <button id="menu-button"><span>MENU</span></button>
+
+            <div class="dropdown-content">
+                <a href="artisan-bread.html">Artisan Bread</a>
+                <br>
+                <a href="pastries.html">Pastries</a>
+                <br>
+                <a href="sweet-treats.html">Sweet Treats</a>
+                <br>
+                <a href="home.html">Home Page</a>
+            </div>
+
+        </div>
+        <a href="home.html"><img src="images/tb-logo.png" alt="logo"></a>
+    </div>
+
+    <div class="pastries-header">
+
+        <img src="images/croissant-01.png" alt="croissants" id="croissant-img">
+        <h1 id="pastries-title">PASTRIES</h1>
+        <p id="caption">Better than breakfast in bed.
+            <br>
+            <br>
+            Made fresh every morning, our pastries go from reasonably (ahem) healthy to hopelessly decadent. Grab a
+            quick
+            bite with some coffee, or take your time and settle in with your laptop (yes, we have free Wifi) and a nice
+            cappuccino to go with that croissant. And Blueberry Boat. And maybe a Craisin Orange Scone to tide you over
+            till lunch</p>
+
+    </div>
+
+    <div class="menu-container">
+
+
+        <div class="menu-container-1">
+            <table id="croissants">
+                <tr>
+                    <th>CROISSANTS</th>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Butter Croissant</span>
+                        <div class="hover">The traditional choice for breakfast or brunch, a ham sandwich or even bread
+                            pudding
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Chocolate Croissant</span>
+                        <div class="hover">Our flaky croissant dough wrapped around chocolate pieces – simple, slightly
+                            sweet, and a hit with the kids
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Almond Croissant</span>
+                        <div class="hover">A butter croissant split and soaked with a kirsch syrup, slathered with
+                            almond cream, and encrusted with sliced almonds
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+
+            <table id="danish">
+                <tr>
+                    <th>DANISH</th>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Cheese Danish</span>
+                        <div class="hover">Flaky croissant dough folded around our vanilla cream cheese filling and
+                            dusted with powdered sugar
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Cinnamon-Raisin Roll</span>
+                        <div class="hover">The classic, packed with large raisins and topped with cream cheese icing
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Fruit Snails</span>
+                        <div class="hover">These change seasonally – some of our offerings include apple-crumb, Cherry,
+                            and vanilla blackberry peach. We offer 2 varieties daily
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Bacon & Cheese Danish</span>
+                        <div class="hover">Our croissant dough folded around bacon and swiss cheese. Fantastic to eat
+                            cold or warmed in the oven
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Cherry Hearts</span>
+                        <div class="hover">Croissant dough filled with cherry and cream cheese filling</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Rum Raisin Rolls</span>
+                        <div class="hover">A Parisian standard – vanilla pastry cream and rum-soaked raisins rolled into
+                            our croissant dough
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Sticky Buns - With or Without Pecans</span>
+                        <div class="hover">Cinnamon-filled and caramel-covered, many of our customers buy dozens of
+                            these for family and office events
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="menu-container-2">
+            <table align="right" id="muffins">
+                <tr>
+                    <th>MUFFINS</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Our muffins are just that – they’re not cupcakes, nor giant warehouse monstrosities. We use
+                            brown sugar for comfort and buttermilk for a bit of tang, and add fruits and nuts for flavor
+                            and crunch. The bakers make 3 or 4 kinds of muffins daily – call your local shop for
+                            availability:
+                        <br>
+                            <br>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Blueberry
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Raspberry
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Chocolate Chip
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Bran
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Banana Walnut
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Lemon Poppy
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Cherry Almond
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Pumpkin Muffin - Winter Seasonal
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Apple Hazelnut Bran - Winter Seasonal
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="menu-container-3">
+            <table id="scones">
+                <tr>
+                    <th>SCONES</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            We have 2 types of scones – a buttermilk-based version which we fill with dried fruits, and
+                            our incredibly popular Cream Scone (which you can also buy frozen to bake at home). None of
+                            them are overly sweet, and all of them are a perfect match for your favorite coffee:
+                            <br>
+                            <br>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Orange Chocolate Chip
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Golden Raisin Ginger
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Oatmeal Current Cream
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Blueberry - Summer
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Ginger Hazelnut - Winter
+                    </td>
+                </tr>
+            </table>
+
+            <table id="puff-pastry">
+                <tr>
+                    <th>PUFF PASTRY</th>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Almond Pretzel</span>
+                        <div class="hover">We layer our puff pastry with an almond filling, twist it up and shape it
+                            into a pretzel. Topped with sliced almonds and icing
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Chocolate Pretzel</span>
+                        <div class="hover">Just like the almond version, this one gets layered with a chocolate filling
+                            and drizzled with icing
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Cinnamon-Pecan Swirl</span>
+                        <div class="hover">This features layers of light pastry, sweet cinnamon filling and a handful of
+                            pecans on top. It’s a Turtle Bread classic
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Fruit Boats</span>
+                        <div class="hover">In the summer we fill these with blueberries and cinnamon, and in the winter
+                            we fill them with apples. Encrusted with sparkly sugar
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Cherry Turnover</span>
+                        <div class="hover">Puff dough filled with cherry filling</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Sacristan</span>
+                        <div class="hover">Simple twists filled with vanilla pastry cream and dusted with powdered
+                            sugar, they’re great for mid-morning coffee
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div> <!--end of menu container 3-->
+    </div> <!--end of menu container-->
+</div> <!--end of wrapper-->
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Scroll To Top</button>
+<script>
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    $(document).ready(function () {
+// Add smooth scrolling to all links
+        $("a").on('click', function (event) {
+
+// Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+// Prevent default anchor click behavior
+                event.preventDefault();
+
+// Store hash
+                var hash = this.hash;
+
+// Using jQuery's animate() method to add smooth page scroll
+// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function () {
+
+// Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+    });
+</script>
+</body>
+</html>

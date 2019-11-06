@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Turtle Bread</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.jsLinks to an external site."></script>
+
+</head>
+<style>
+    * {
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #F2DBAF;
+    }
+
+    .wrapper {
+        width: 1180px;
+        background-color: #F2DBAF;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .header {
+        position: relative;
+        width: 1180px;
+        height: 125px;
+        background-color: floralwhite;
+        margin-top: 75px;
+        margin-bottom: 50px;
+        border-top: 2px solid #000000;
+        border-bottom: 2px solid #000000;
+    }
+
+    .dropdown {
+        position: absolute;
+        display: inline-block;
+        font-family: "Century Gothic", sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+        margin-top: 30px;
+        border-radius: 5px;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #FFFDFD;
+        min-width: 250px;
+        min-height: 150px;
+        letter-spacing: 2px;
+        line-height: 60px;
+        box-shadow: 0 8px 16px 0;
+        z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+        border-radius: 10px;
+        padding: 10px;
+        margin-top: 55px;
+        margin-left: 10px;
+    }
+
+    .about-container {
+        width: 900px;
+        background-color: floralwhite;
+        border: 2px solid #000000;
+        border-radius: 5px;
+        position: relative;
+        /*margin: 0 auto;*/
+        margin-top: -498px;
+        margin-left: 20px;
+        text-align: center;
+        font-family: "Century Gothic", sans-serif;
+        padding-top: 20px;
+
+    }
+
+    .about-us {
+        width: 895px;
+        height: 50px;
+        background-color: #F2DBAF;
+        border-top: 2px solid #000000;
+        border-bottom: 2px solid #000000;
+        padding: 8px;
+        margin: 10px 0 20px 1px;
+        box-sizing: border-box;
+    }
+
+    #why-text
+    {
+        font-family: "Century Gothic", sans-serif;
+        font-size: 20px;
+        text-align: left;
+        margin: 10px;
+        line-height: 30px;
+    }
+
+    .info-container
+    {
+        width: 200px;
+        height: 500px;
+        background-color: floralwhite;
+        border: 2px solid black;
+        position: relative;
+        /*margin: 0 auto;*/
+        margin-left: 950px;
+        border-radius: 5px;
+        text-align: center;
+        font-family: "Century Gothic", sans-serif;
+
+    }
+
+    button {
+        position: absolute;
+        width: 180px;
+        height: 60px;
+        padding: 10px;
+        margin: 16px;
+        background: #F2DBAF;
+        border: 1px solid #000000;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-family: "Century Gothic", sans-serif;
+        font-size: 20px;
+        box-shadow: -3px 3px #d8c39c;
+        cursor: pointer;
+    }
+
+    #menu-button {
+        width: 150px;
+        background-color: #F2DBAF;
+        box-shadow: -3px 3px #d8c39c;
+        margin-top: -5px;
+        border-width: 2px;
+        font-family: "Century Gothic", sans-serif;
+        font-size: 25px;
+        font-weight: bolder;
+        cursor: pointer;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    td {
+        width: 33%;
+        padding: 5px;
+    }
+
+    ul {
+       line-height: 30px;
+    }
+
+    a:link {
+        text-decoration: none;
+        color: black;
+    }
+
+    a:visited {
+        text-decoration: none;
+        color: #ff5246;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: #a91775;
+    }
+
+    a:active {
+        text-decoration: none;
+        color: #f3fffa;
+    }
+
+    a:hover {
+        cursor: pointer;
+    }
+
+    img {
+        width: 450px;
+        margin-left: 370px;
+        margin-top: -15px;
+    }
+
+    table {
+        text-align: left;
+        font-size: 20px;
+        background-color: #F2DBAF;
+    }
+    h1 {
+        margin-top: -120px;
+        margin-left: 200px;
+        color: black;
+        font-family: "apple-chancercursive", serif;
+        font-weight: bold;
+        font-size: 60px;
+        position: absolute;
+        text-align: center;
+    }
+
+    h3 {
+        margin-top: 6px;
+        font-size: 20px;
+    }
+
+    h4 {
+        font-weight: normal;
+        font-size: 22px;
+    }
+
+    iframe {
+        height: 80%;
+        width: 60%;
+        margin-left: 60px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        align-content: baseline;
+    }
+
+    .map1
+    {
+        border: solid floralwhite;
+    }
+    .map2
+    {
+        border: solid floralwhite;
+    }
+    .map3
+    {
+        border: solid floralwhite;
+    }
+    .locate-box
+    {
+        margin-left: 945px;
+        margin-top: -280px;
+    }
+    .locate-header
+    {
+        width: 895px;
+        height: 50px;
+        background-color: #F2DBAF;
+        border-top: 2px solid #000000;
+        border-bottom: 2px solid #000000;
+        box-sizing: border-box;
+        padding: 8px;
+        margin: -25px 0 10px 1px;
+    }
+    .contact-box
+    {
+        margin-left: -210px;
+        margin-top: 305px;
+    }
+    .maps-box
+    {
+        margin-left: -210px;
+        margin-top: -265px;
+    }
+
+
+    .contact-info-header
+    {
+        width: 895px;
+        background-color: #F2DBAF;
+        border-top: 2px solid #000000;
+        border-bottom: 2px solid #000000;
+        box-sizing: border-box;
+        margin: 10px 0 10px 1px;
+    }
+    .contact-info-text
+    {
+        background-color: #ffefd5;
+        border: 1px solid #000000;
+        margin: 5px;
+    }
+
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 490px;
+        z-index: 99;
+        font-size: 20px;
+        outline: none;
+        background-color: #ff5246;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 4px;
+    }
+
+    #myBtn:hover {
+        background-color: #c6a46f;
+    }
+
+    #building-img {
+        width: 100%;
+        margin-left: 2px;
+        margin-bottom: 5px;
+        opacity: 40%;
+        position: relative;
+    }
+</style>
+
+<html>
+
+<body class="wrapper">
+
+     <div class="header">
+
+        <div class="dropdown">
+
+                  <button id="menu-button"><span>MENU</span></button>
+
+            <div class="dropdown-content">
+                <a href="artisan-bread.html">Artisan Bread</a>
+                <br>
+                <a href="pastries.html">Pastries</a>
+                <br>
+                <a href="sweet-treats.html">Sweet Treats</a>
+            </div>
+
+        </div>
+         <a href="home.html"><img src="images/tb-logo.png" alt="logo"></a>
+     </div>
+     <div class="pastries-header">
+
+         <img src="images/building-01.png" alt="building" id="building-img">
+         <h1 id="turtle-bread-company">TURTLE BREAD COMPANY</h1>
+     </div>
+
+    <div class="info-container">
+        <br>
+        <h2>INFO</h2>
+
+        <div class="contact-box">
+            <button><a href="#contact"><h2 id="nav-contact">Contact</h2></a></button>
+        </div>
+
+        <div class="maps-box">
+            <button><a href="#googlemap"><h2 id="nav-google-maps">Maps</h2></a></button>
+        </div>
+
+    </div>
+
+    <div class="locate-box">
+        <button><a href="#locate"><h2 id="nav-locate">Locate</h2></a></button>
+    </div>
+
+    <div class="about-container">
+
+        <div class="about-us">
+            <h2>ABOUT US</h2>
+        </div>
+
+                <h4 bgcolor="#ffefd5">Why “Turtle Bread”?</h4>
+                    <br>
+                <p id="why-text"> Because great bread takes time.
+                    <br>
+                    <br>
+                    Since November of 1994, we’ve been taking our time to hand-craft flavorful artisan breads, pastries,
+                    soups, cookies and pies. We’ve branched out along the way – expanding to include a wood fire pizza
+                    restaurant, a French bistro, and a rustic Italian café – all the while maintaining our dedication to
+                    fresh, flavorful food served in a welcoming neighborhood environment. We love that we’re the kind of
+                    place our customers visit to enjoy a weekend breakfast with their families, to pick up some cheese
+                    and fresh bread after work to serve to dinner guests, to feast on a romantic candlelit anniversary
+                    dinner, or to simply treat themselves to a piece of delicious pie made from scratch.
+                    <br>
+                    <br>
+                    We hope you’ll visit us soon!
+                    <br></p>
+
+        <table id="about-table" border="1">
+
+            <tr>
+                <td valign="top" bgcolor="#ffefd5">
+                Who cut the cheese?
+                <br>
+                <br>
+                <br>
+                No need for embarrassment – it was us. All of our locations stock a hearty selection of cheeses and
+                other deli delights ready to slice and arrange on a tray for your next party, or cut into individual
+                serving sizes that pair perfectly with a slice of our baguette for a quick lunch.
+                </td>
+
+                <td valign="top" bgcolor="#ffefd5" id="table3">Breakfast, Lunch, or Dinner?
+                    <br>
+                    <br>
+                    Early birds can stop by any of our three locations for a full hot breakfast menu or for a quick bite
+                    before work. If lunch is on your mind, you have a world of options, from full menu meals to a simple
+                    delicious soup and sandwich. For dinner Pizza Biga offers full dinner service at our 48th and
+                    Chicago location.
+                </td>
+                <td bgcolor="#ffefd5" id="table4">
+                    Soup's Fantastic
+                    <br>
+                    <br>
+                    Every day our soup chef, Daniel, prepares fresh soups for each of Turtle Bread’s three locations.
+                    While Tomato Basil has long been established as our number-one seller, other recipes such as
+                    Garbanzo
+                    Spinach and Chicken Tortilla are fast becoming customer favorites. Selections vary daily by
+                    location;
+                    please call your nearest Turtle Bread for a listing of the day’s soups.
+                </td>
+            </tr>
+
+        </table>
+                    <br>
+                    <br>
+
+        <div class="locate-header">
+            <section><h2 id="locate">LOCATE</h2></section>
+        </div>
+
+        <table border="1">
+            <tr>
+                <td><h4>Chicago Avenue</h4></td>
+                <td><h4>Linden Hills</h4></td>
+                <td><h4>Longfellow</h4></td>
+            </tr>
+            <tr>
+                <td bgcolor="#ffefd5">
+                    Pizza Biga (pizzabiga.com)
+                    <br>
+                    <br>
+                    Wood fired pizza and delicacies. A room often housing the overflow during Turtle Bread’s breakfast
+                    and lunch, Pizza Biga’s skilled pizza cooks reclaim the space at night to combine Turtle Bread’s
+                    hand-made pizza dough with fresh toppings that are baked to perfection in our wood-fired oven.
+                    Pair with a Caesar salad and a bottle of Chianti, and you’ve got a romantic dinner for two.
+                    <br>
+                    <br>
+                    (612) 823-7333
+                    <br>
+                    <br>
+
+                    <ul>
+                        <li>Open from 6am - 9pm</li>
+                        <li>Hot Breakfast 7:30am - 2:30pm</li>
+                        <li>Lunch from 11:00am - 2:30pm</li>
+                        <li>Soups & Sandwiches</li>
+                        <li>Coffee</li>
+                        <li>Cold Beverages</li>
+                        <li>Green Salads & Pasta Salads</li>
+                        <li>Cheese, Dips & Spreads</li>
+                        <li>Gourmet Grocery</li>
+                    </ul>
+                    <br>
+                    <br>
+                    <p>
+                        You may also order a pizza to go, or purchase some frozen ones from Turtle Bread for later use.
+                        Open for dinner: Sunday - Thursday 5pm - 9pm, Friday - Saturday 5pm - 10pm
+                    </p>
+
+                    <br>
+                    <br>
+
+                    <p>
+
+                        Our beautiful South Minneapolis location offers an expansive seating area from which –
+                        at the right time – you can view our bakers concocting the fresh bread and pastries offered
+                        daily at each of our three locations. In addition to our baked goods, you’ll find full-service
+                        breakfast and lunch menus, fresh soup selections and gourmet grocery selections to enjoy at
+                        home.
+                    </p>
+                </td>
+                <td bgcolor="#ffefd5" valign="top">
+                    The original Turtle Bread Company location, open since 1996, now serves full breakfast and lunch
+                    menus similar to those popular at our Chicago Ave. location. Here, you’ll also find a more extensive
+                    selection of gourmet groceries including salad dressings, preserves, cheeses and marinades for
+                    grilling.
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    (612) 924-6013
+                    <br>
+                    <br>
+
+                    <ul>
+                        <li>Open Monday - Saturday <br> 6am - 8pm</li>
+                        <li>Open Sunday 6am - 7pm</li>
+                        <li>Hot Breakfast 7:30am - 2:30pm</li>
+                        <li>Lunch from 11:00am - 2:30pm</li>
+                        <li>Soups & Sandwiches</li>
+                        <li>Quiche</li>
+                        <li>Tea</li>
+                        <li>Coffee</li>
+                        <li>Cold Beverages</li>
+                        <li>Green Salads & Pasta Salads</li>
+                        <li>Cheese, Dips & Spreads</li>
+                        <li>Gourmet Grocery</li>
+                    </ul>
+
+                </td>
+                <td bgcolor="#ffefd5" valign="top">
+                    Our newest pillar in the Turtle Bread Company.
+                    Here, you’ll find all the breads, cookies and goodies available at our other locations.
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    (612) 545-5757
+                    <br>
+                    <br>
+                    <ul>
+                        <li>Open everyday 6am - 6pm
+                        <li>Hot Breakfast 7:30am - 2:30pm</li>
+                        <li>Lunch from 11:00am - 2:30pm</li>
+                        <li>Soups & Sandwiches</li>
+                        <li>Quiche</li>
+                        <li>Coffee</li>
+                        <li>Cold Beverages</li>
+                        <li>Green Salads & Pasta Salads</li>
+                        <li>Cheese, Dips & Spreads</li>
+                    </ul>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="map1">
+                        <section><h3 id="googlemap" align="center">4762 Chicago Ave, Minneapolis, MN 55407</h3></section>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2825.3446941510383!2d-93.2652094844608!3d44.916325379098225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f627d4b2574455%3A0x6ca780dd27d805b!2sTurtle%20Bread%20Company!5e0!3m2!1sen!2sus!4v1572468535337!5m2!1sen!2sus"
+                                width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                    </div>
+                </td>
+                <td>
+                    <div class="map2">
+                        <h3 align="center">3421 W 44th St, Minneapolis, MN 55410</h3>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2825.012074309715!2d-93.32598968497159!3d44.923089979098286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f6272357e14b07%3A0x2c4364d59ae95db8!2sTurtle%20Bread!5e0!3m2!1sen!2sus!4v1572469159088!5m2!1sen!2sus"
+                                width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                    </div>
+                </td>
+                <td>
+                    <div class="map3">
+                        <h3 align="center">4205 E 34th St, Minneapolis, MN 55406</h3>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2824.1154971502924!2d-93.21454268497085!3d44.94131997909827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f629ceb03263cf%3A0x7e3a2b64e40c74ac!2sTurtle%20Bread!5e0!3m2!1sen!2sus!4v1572469193535!5m2!1sen!2sus"
+                                width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+            <div class="contact-info-header">
+
+                <br>
+                <section><h2 id="contact">CONTACT</h2></section>
+                <br>
+            </div>
+
+        <div class="contact-info-text">
+                <h3>
+                    Manager: Marnie Berg
+                    <br>
+                    <br>
+                    Special Orders and Events:
+                    <br>
+                    <br>
+                    For special orders or event hosting at any of our locations, contact Marnie or Harvey at
+                </h3>
+                    <br>
+                      <h2>612-823-7333.</h2>
+                    <br>
+                <h3>
+                  For wholesale or custom bread orders, contact Harvey at
+                </h3>
+                    <br>
+                      <h2>612-201-9784</h2>
+                    <br>
+            </div>
+
+    </div>
+
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Scroll To Top</button>
+
+<script>
+
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    $(document).ready(function () {
+// Add smooth scrolling to all links
+        $("a").on('click', function (event) {
+
+// Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+// Prevent default anchor click behavior
+                event.preventDefault();
+
+// Store hash
+                var hash = this.hash;
+
+// Using jQuery's animate() method to add smooth page scroll
+// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function () {
+
+// Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+    });
+</script>
+</body>
+</html>

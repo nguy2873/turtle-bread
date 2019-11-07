@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sweet Treats</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #F2DBAF;
+        }
+
+        h1 {
+            font-family: "Century Gothic", sans-serif;
+            text-align: center;
+        }
+
+        .wrapper {
+            width: 1180px;
+            background-color: #F2DBAF;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .header {
+            position: relative;
+            width: 1180px;
+            height: 125px;
+            background-color: floralwhite;
+            margin-top: 75px;
+            margin-bottom: 50px;
+            border-top: 2px solid #000000;
+            border-bottom: 2px solid #000000;
+        }
+
+        .dropdown {
+            position: absolute;
+            display: inline-block;
+            font-family: "Century Gothic", sans-serif;
+            font-weight: bold;
+            font-size: 30px;
+            margin-top: 30px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #FFFDFD;
+            min-width: 250px;
+            min-height: 150px;
+            letter-spacing: 2px;
+            line-height: 60px;
+            box-shadow: 0 8px 16px 0;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 55px;
+            margin-left: 10px;
+
+        }
+
+        button {
+            position: absolute;
+            width: 180px;
+            height: 60px;
+            padding: 10px;
+            margin: 16px;
+            background: #F2DBAF;
+            border: 1px solid #000000;
+            box-sizing: border-box;
+            border-radius: 5px;
+            font-family: "Century Gothic", sans-serif;
+            font-size: 20px;
+            box-shadow: -3px 3px #d8c39c;
+        }
+
+        #menu-button {
+            width: 150px;
+            background-color: #F2DBAF;
+            box-shadow: -3px 3px #d8c39c;
+            margin-top: -5px;
+            border-width: 2px;
+            font-family: "Century Gothic", sans-serif;
+            font-size: 25px;
+            font-weight: bolder;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        a:link {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:visited {
+            text-decoration: none;
+            color: #ff5246;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: #a91775;
+        }
+
+        a:active {
+            text-decoration: none;
+            color: #f3fffa;
+        }
+
+        a:hover {
+            cursor: pointer;
+        }
+
+        img {
+            width: 450px;
+            margin-left: 370px;
+            margin-top: -15px;
+        }
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 490px;
+            z-index: 99;
+            font-size: 20px;
+            outline: none;
+            background-color: #ff5246;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        #myBtn:hover {
+            background-color: #c6a46f;
+            opacity: 30%;
+        }
+
+        #cake-img {
+            width: 100%;
+            height: 155px;
+            margin-left: 1px;
+            margin-bottom: 5px;
+            opacity: 40%;
+            position: relative;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+
+        }
+
+        .underlay {
+            width: 1178px;
+            background-color: #c6a46f;
+            height: 80px;
+            margin-top: 30px;
+            margin-left: 2px;
+            position: absolute;
+        }
+
+
+        h1 {
+            margin-top: -120px;
+            margin-left: 490px;
+            opacity: 200%;
+            color: black;
+            font-family: "apple-chancercursive", serif;
+            font-weight: bold;
+            font-size: 60px;
+            /*-webkit-text-stroke: 1px floralwhite;*/
+            position: absolute;
+        }
+
+        #caption {
+            font-family: "Century Gothic", sans-serif;
+            font-size: 18px;
+            text-align: center;
+            background-color: #ffefd5;
+            padding: 20px 5px 20px 5px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #c6a46f;
+            border-radius: 5px
+        }
+
+        .menu-container {
+            width: 1180px;
+
+        }
+
+        table {
+            border-radius: 5px;
+            line-height: 90px;
+            background-color: #ffefd5;
+            border: 1px solid #c6a46f;
+            width: 390px;
+        }
+
+        th {
+            font-size: 24px;
+            font-family: "Century Gothic", sans-serif;
+            cursor: default;
+        }
+
+        tr {
+            border: 1px black solid;
+            border-radius: 5px;
+            font-size: 20px;
+            font-family: "Century Gothic", sans-serif;
+            text-align: center;
+            cursor: pointer;
+
+        }
+
+        .menu-container-1 {
+            margin-left: 1px;
+        }
+
+        .menu-container-2 {
+            margin-top: -1598px;
+        }
+
+        .menu-container-3 {
+
+            margin-left: 395px;
+        }
+
+        .hover {
+            background-color: floralwhite;
+            padding: 0 5px 0 5px;
+            display: none;
+            border-radius: 5px;
+            border: 1px solid #c6a46f;
+            opacity: 95%;
+            margin-top: -30px;
+            font-size: 18px;
+            line-height: 30px;
+            max-width: 300px;
+            color: #ff5246;
+        }
+
+        span:hover + .hover {
+            display: block;
+            position: absolute;
+            margin-left: 45px;
+        }
+
+        #sweet-treats-title {
+            margin-left: 350px;
+        }
+
+        p {
+            line-height: 30px;
+            font-size: 18px;
+        }
+        .asterix
+        {
+            line-height: 20px;
+            padding-bottom: 15px;
+        }
+        #asterix
+        {
+            line-height: 20px;
+            padding-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+
+    <div class="header">
+
+        <div class="dropdown">
+
+            <button id="menu-button"><span>MENU</span></button>
+
+            <div class="dropdown-content">
+                <a href="artisan-bread.html">Artisan Bread</a>
+                <br>
+                <a href="pastries.html">Pastries</a>
+                <br>
+                <a href="sweet-treats.html">Sweet Treats</a>
+                <br>
+                <a href="home.html">Home Page</a>
+            </div>
+
+        </div>
+        <a href="home.html"><img src="images/tb-logo.png" alt="logo"></a>
+    </div>
+
+    <div class="sweet-treats-header">
+        <div class="underlay"></div>
+        <img src="images/cake-01.png" alt="cake" id="cake-img">
+        <h1 id="sweet-treats-title">SWEET TREATS</h1>
+        <p id="caption">Your sweet tooth just went to heaven.
+            <br>
+            <br>
+            And your diet just went to hell. Ah, but what’s life without a few sweet temptations? Ours rank right up there
+            at the top of the list. Every delightful treat is lovingly made from scratch, using quality ingredients and treasured recipes handed down for generations.
+        </p>
+    </div>
+
+    <div class="menu-container">
+
+        <div class="menu-container-1">
+            <table id="Hearth Breads">
+                <tr>
+                    <th>Cakes</th>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Triple Chocolate</span>
+                        <div class="hover">Three layers of devil’s food cake, milk chocolate buttercream, chocolate ganache; garnished with chocolate sprinkles.
+                            <br>
+                            <br>
+                            Available in 7” or 10” rounds; quarter or half sheets available by special order
+                        </div>
+                    </td>
+                <tr>
+                    <td>
+                        <span>Chocolate Raspberry</span>
+                        <div class="hover">Three layers of devil’s food cake, raspberry buttercream, white velvet frosting and raspberry glaze
+                            <br>
+                            <br>
+                            Available in 7” or 10” rounds; quarter or half sheets available by special order
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Carrot</span>
+                        <div class="hover">Three layers of carrot cake, cream cheese icing and walnut garnish
+                            <br>
+                            <br>
+                            Available in 7” or 10” rounds; quarter or half sheets available by special order
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Opera</span>
+                        <div class="hover">Four layers of coffee and rum-soaked almond sponge, coffee buttercream and chocolate ganache
+                            <br>
+                            <br>
+                            Available in 4” x 6” rectangle, quarter or half sheets available by special order
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Marquise</span>
+                        <div class="hover">Dense chocolate mousse cake covered in chocolate ganache, garnished with cocoa nibs
+                            <br>
+                            <br>
+                            Available in 4” or 7” rounds
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Holiday Cakes</span>
+                        <div class="hover">We make different cakes specific to most all holidays. Give us a call to see what is decorated on our shelves today!
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <table id="cupcakes">
+                <tr>
+                    <th>CUPCAKES</th>
+                </tr>
+                <tr>
+                    <th>The Regulars
+                        <br>
+                        [Available year-round]:</th>
+                </tr>
+                <tr><td>Chocolate</td></tr>
+                <tr><td>Devil's Food</td></tr>
+                <tr><td>Red Velvet</td></tr>
+                <tr><td>Carrot with Cream Cheese</td></tr>
+                <tr>
+                    <th>Cupcake of the Month: Candy Cane</th>
+                </tr>
+                <tr><td>Chocolate Cake with Ganache Filling</td></tr>
+            </table>
+
+            <div class="menu-container-2">
+                <table align="right" id="cookies-bars">
+                    <tr>
+                        <th>COOKIES & BARS</th>
+                    </tr>
+                    <tr>
+                        <th>Bars</th>
+                    <tr>
+                        <td>Pumpkin Bars</td>
+                    </tr>
+                    <tr>
+                        <td>Mexican Brownies</td>
+                    </tr>
+                    <tr>
+                        <td>Peanut Butter</td>
+                    </tr>
+                    <tr>
+                        <td>Lemon</td>
+                    </tr>
+                    <tr>
+                        <td>Blueberry Cheesecake (No Sugar Added)</td>
+                    </tr>
+                    </tr>
+                        <tr>
+                            <th>Cookies</th>
+                        </tr>
+                            <tr>
+                                <td>Chocolate Chip</td>
+                            </tr>
+                            <tr>
+                                <td>Ginger Molasses</td>
+                            </tr>
+                            <tr>
+                                <td>Oatmeal Raisin</td>
+                            </tr>
+                            <tr>
+                                <td>Palmier</td>
+                            </tr>
+                            <tr>
+                                <td>Peanut Butter Chocolate Chunk</td>
+                            </tr>
+                            <tr>
+                                <td>Snickerdoodle</td>
+                            </tr>
+                            <tr>
+                                <td id="asterix">Sold as large single cookies or in a smaller size bagged by the dozen.</td>
+                            </tr>
+                </table>
+            </div>
+            <div class="menu-container-3">
+                <table id="cheesecake">
+                    <tr>
+                        <th>CHEESECAKE</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Lemon</span>
+                            <div class="hover">Classic cheesecake with a lemon swirl.
+                                Garnished with lemon curd and white velvet icing
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Cherry</span>
+                            <div class="hover">Italian Amerena cherry sauce swirled into vanilla cheesecake.
+                                Garnished with cherry glaze and white velvet icing
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Vanilla Bean</span>
+                            <div class="hover">Our classic, creamy and dense cheesecake.
+                                Garnished with white chocolate icing
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Marble</span>
+                            <div class="hover">Our vanilla cheesecake marbled with chocolate cheesecake
+                                Garnished with a chocolate drizzle
+                                <br>
+                                <br>
+                                9” round serves 18-24 people
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <table id="pies">
+                    <tr>
+                        <th>PIES</th>
+                    </tr>
+                    <tr>
+                            <th>The Regulars
+                                <br>
+                                [Available year-round]:</th>
+                    </tr>
+                    <tr><td>Raspberry</td></tr>
+                    <tr><td>Chocolate Cream</td></tr>
+                    <tr><td>Key Lime</td></tr>
+                    <tr><td>Lemon Meringue</td></tr>
+                        <tr>
+                            <th>Spring/Summer Pies  Available April-August:</th>
+                        </tr>
+                    <tr><td>Blueberry Rhubarb</td></tr>
+                    <tr><td>Strawberry Rhubarb</td></tr>
+                    <tr><td>Peach Blackberry</td></tr>
+                    <tr>
+                        <th>Fall/Winter Pies  Available September-March:</th>
+                    </tr>
+                    <tr><td>Apple</td></tr>
+                    <tr><td>Pear Cranberry</td></tr>
+                    <tr><td>Bourbon Pecan</td></tr>
+                    <tr><td>Pumpkin</td></tr>
+                    <tr>
+                        <td class="asterix">Selection may vary by season and by location.  Contact us for more information.</td>
+                    </tr>
+
+
+                </table>
+            </div>
+        </div> <!--end of menu container 3-->
+    </div> <!--end of menu container-->
+</div> <!--end of wrapper-->
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Scroll To Top</button>
+<script>
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    $(document).ready(function () {
+// Add smooth scrolling to all links
+        $("a").on('click', function (event) {
+
+// Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+// Prevent default anchor click behavior
+                event.preventDefault();
+
+// Store hash
+                var hash = this.hash;
+
+// Using jQuery's animate() method to add smooth page scroll
+// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function () {
+
+// Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+    });
+</script>
+</body>
+</html>
